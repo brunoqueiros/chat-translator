@@ -14,7 +14,7 @@ class MessageItem extends React.Component {
     this.state = getInitialState();
   }
 
-  onKeyDown(event) {
+  _onKeyDown = (event) => {
     if (event.keyCode === ENTER_KEY_CODE) {
       event.preventDefault();
 
@@ -26,7 +26,7 @@ class MessageItem extends React.Component {
     }
   }
 
-  _onChange(event, value) {
+  _onChange = (event, value) => {
     this.setState({text: event.target.value});
   }
 
@@ -34,8 +34,8 @@ class MessageItem extends React.Component {
     return (
       <textarea
         value={this.state.text}
-        onChange={this._onChange.bind(this)}
-        onKeyDown={this.onKeyDown.bind(this)}
+        onChange={this._onChange}
+        onKeyDown={this._onKeyDown}
       ></textarea>
     );
   }
