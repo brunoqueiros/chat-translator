@@ -1,0 +1,34 @@
+{
+  "name": "live-translator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/jest-cli/bin/jest.js",
+    "build": "browserify -t [babelify] --debug src/app.js > src/bundle.js",
+    "watch": "watchify src/app.js -t babelify -o src/bundle.js -dv",
+    "start": "npm run watch & live-server --port=3000 ./src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://brunoqueiros@bitbucket.org/brunoqueiros/live-translator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "alt": "^0.17.3",
+    "react": "^0.13.3",
+    "superagent": "^1.4.0"
+  },
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.1.0",
+    "watchify": "^3.4.0",
+    "live-server": "^0.8.1"
+  },
+  "babel": {
+    "optional": [
+      "es7.decorators"
+    ]
+  }
+}
