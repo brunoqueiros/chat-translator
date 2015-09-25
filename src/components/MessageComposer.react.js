@@ -32,11 +32,13 @@ class MessageItem extends React.Component {
 
   render() {
     return (
-      <textarea
-        value={this.state.text}
-        onChange={this._onChange}
-        onKeyDown={this._onKeyDown}
-      ></textarea>
+      <div className="ui reply form">
+        <textarea
+          value={this.state.text}
+          onChange={this._onChange}
+          onKeyDown={this._onKeyDown}
+        ></textarea>
+      </div>
     );
   }
 }

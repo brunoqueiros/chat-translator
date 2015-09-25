@@ -7,7 +7,9 @@ class VideoSection extends React.Component {
 
   render() {
     return (
-      <h1>VideoSection</h1>
+      <div className="column eleven wide">
+        <h1>VideoSection</h1>
+      </div>
     )
   }
 }

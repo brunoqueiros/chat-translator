@@ -47,8 +47,8 @@ class MessagesSection extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>MessageSection</h1>
+      <div className="column five wide ui comments">
+        <h2 className="ui dividing header">Messages</h2>
 
         {this.props.messages.map((message) => {
           return (
