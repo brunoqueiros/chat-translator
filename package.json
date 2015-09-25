@@ -18,6 +18,7 @@
   "dependencies": {
     "alt": "^0.17.3",
     "react": "^0.13.3",
+    "semantic-ui-css": "^2.1.4",
     "superagent": "^1.4.0"
   },
   "devDependencies": {
