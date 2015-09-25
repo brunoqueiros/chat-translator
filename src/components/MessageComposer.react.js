@@ -3,16 +3,13 @@ import MessagesActions from '../actions/MessagesActions';
 
 const ENTER_KEY_CODE = 13;
 
-function getInitialState() {
+function getStateFromStore() {
   return {text: ''}
 }
 
 class MessageItem extends React.Component {
-  constructor() {
-    super();
 
-    this.state = getInitialState();
-  }
+  state = getStateFromStore();
 
   _onKeyDown = (event) => {
     if (event.keyCode === ENTER_KEY_CODE) {
