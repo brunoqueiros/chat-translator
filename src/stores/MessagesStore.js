@@ -4,8 +4,8 @@ import Translator from '../utils/Translator';
 import MessageUtil from '../utils/MessageUtil';
 
 const MOCK = [
-  { id: 1, text: 'Bla bla bla'},
-  { id: 2, text: 'Hello world!'}
+  { id: 1, text: 'My name is Bruno', translatedText: 'Meu nome é Bruno' },
+  { id: 2, text: 'Hello world!', translatedText: 'Olá mundo!' }
 ];
 
 class MessagesStore {
