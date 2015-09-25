@@ -7,7 +7,7 @@
     "test": "node node_modules/jest-cli/bin/jest.js",
     "build": "browserify -t [babelify] --debug src/app.js > src/bundle.js",
     "watch": "watchify src/app.js -t babelify -o src/bundle.js -dv",
-    "start": "npm run watch & live-server --port=3000 ./src/"
+    "start": "npm run watch & live-server --port=3000 --entry-file=src/index.html ./"
   },
   "repository": {
     "type": "git",
