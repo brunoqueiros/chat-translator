@@ -20,7 +20,7 @@ class MessageItem extends React.Component {
 
       let text = this.state.text.trim();
       if (text) {
-        MessagesActions.newMessage(text);
+        MessagesActions.newMessage(text, 'en-US');
       }
       this.setState({text: ''});
     }

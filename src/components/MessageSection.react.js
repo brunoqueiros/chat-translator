@@ -50,15 +50,18 @@ class MessagesSection extends React.Component {
       <div className="column five wide ui comments">
         <h2 className="ui dividing header">Messages</h2>
 
-        {this.props.messages.map((message) => {
-          return (
-            <MessageItem
-              key={message.id}
-              text={message.text}
-              translatedText={message.translatedText}
-            />
-          );
-        })}
+        <ul className="message-list">
+          {this.props.messages.map((message) => {
+            return (
+              <MessageItem
+                key={message.id}
+                text={message.text}
+                translatedText={message.translatedText}
+                timestamp={message.timestamp}
+              />
+            );
+          })}
+        </ul>
 
         <MessageComposer />
       </div>
