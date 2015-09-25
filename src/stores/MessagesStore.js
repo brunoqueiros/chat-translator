@@ -4,8 +4,12 @@ import Translator from '../utils/Translator';
 import MessageUtil from '../utils/MessageUtil';
 
 const MOCK = [
-  { id: 1, text: 'My name is Bruno', translatedText: 'Meu nome é Bruno' },
-  { id: 2, text: 'Hello world!', translatedText: 'Olá mundo!' }
+  // {
+  //   id: 1,
+  //   text: 'My name is Bruno',
+  //   timestamp: Date.now(),
+  //   language: 'en-US'
+  // }
 ];
 
 class MessagesStore {
@@ -18,10 +22,10 @@ class MessagesStore {
     this.state.messages = MOCK;
   }
 
-  newMessage(text) {
-    Translator.translate(text)
+  newMessage(message) {
+    Translator.translate(message.text)
     .then((translatedText) => {
-      let message = MessageUtil.createMessage(text, translatedText);
+      message = MessageUtil.createMessage(message, translatedText);
 
       this.setState({
         messages: this.state.messages.concat(message)
