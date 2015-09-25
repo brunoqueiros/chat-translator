@@ -10,38 +10,26 @@ function getStateFromStore() {
 
 @connectToStores
 class MessagesSection extends React.Component {
-  constructor() {
-    super();
 
-    // this.state = getStateFromStore();
-    // this.message = MessagesStore.getMessage();
-
-    this._onChange = this._onChange.bind(this);
-    MessagesStore.listen(this._onChange);
-    console.log(this);
-  }
+  state = getStateFromStore();
 
   static getStores() {
-    console.log('getStores');
     return [MessagesStore];
   }
 
-  static getInitialState() {
-    console.log('getInitialState');
-    return getStateFromStore();
-  }
-
   static getPropsFromStores() {
-    console.log('getPropsFromStores');
     return getStateFromStore();
   }
 
   componentDidMount() {
-    console.log('componentDidMount');
     MessagesStore.listen(this._onChange);
   }
 
-  _onChange() {
+  componentWillUnmount() {
+    MessagesStore.unlisten(this._onChange);
+  }
+
+  _onChange = () => {
     this.setState(getStateFromStore());
   }
 
@@ -51,7 +39,7 @@ class MessagesSection extends React.Component {
         <h2 className="ui dividing header">Messages</h2>
 
         <ul className="message-list">
-          {this.props.messages.map((message) => {
+          {this.state.messages.map((message) => {
             return (
               <MessageItem
                 key={message.id}
@@ -68,7 +56,5 @@ class MessagesSection extends React.Component {
     )
   }
 };
-
-// MessagesSection = connectToStores(MessagesSection);
 
 export default MessagesSection;
