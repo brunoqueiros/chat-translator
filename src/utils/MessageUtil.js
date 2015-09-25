@@ -1,11 +1,13 @@
 class MessageUtil {
-  createMessage(text, translatedText) {
+  createMessage(message, translatedText) {
     let id = '_' + Math.random().toString(36).substr(2, 9);
 
     return {
       id: id,
-      text: text,
-      translatedText: translatedText
+      text: message.text,
+      translatedText: translatedText,
+      timestamp: Date.now(),
+      language: message.language
     }
   }
 }
