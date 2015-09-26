@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "node node_modules/jest-cli/bin/jest.js",
-    "build": "browserify -t [babelify] --debug src/app.js > src/bundle.js",
-    "watch": "watchify src/app.js -t babelify -o src/bundle.js -dv",
-    "start": "npm run watch & live-server --port=3000 --entry-file=src/index.html ./"
+    "build": "browserify -t [babelify] --debug app/app.js > public/bundle.js",
+    "watch": "watchify app/app.js -t babelify -o public/bundle.js -dv",
+    "start": "npm run watch & nodemon --exec babel-node --stage 0 server.js"
   },
   "repository": {
     "type": "git",
@@ -17,15 +17,18 @@
   "license": "ISC",
   "dependencies": {
     "alt": "^0.17.3",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
     "react": "^0.13.3",
     "semantic-ui-css": "^2.1.4",
     "superagent": "^1.4.0"
   },
   "devDependencies": {
+    "babel": "^5.8.23",
     "babelify": "^6.3.0",
     "browserify": "^11.1.0",
-    "watchify": "^3.4.0",
-    "live-server": "^0.8.1"
+    "nodemon": "^1.7.1",
+    "watchify": "^3.4.0"
   },
   "babel": {
     "optional": [
