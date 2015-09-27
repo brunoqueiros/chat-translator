@@ -1,7 +1,7 @@
 # live-translator
 
 ## Usage
-`npm install`
+1. `npm install && bower install`
 
-`npm run start`
+2. `npm run start`
 
