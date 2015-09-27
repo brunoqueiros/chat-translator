@@ -1,7 +1,13 @@
 import React from 'react';
 import MessagesActions from '../actions/MessagesActions';
+import Synthesis from '../utils/Synthesis';
 
 class MessageItem extends React.Component {
+  componentDidMount() {
+    // TODO: Remove language mock
+    Synthesis.speech(this.props.text, 'en-US');
+  }
+
   render() {
     return (
       <li className="comment">
