@@ -11,7 +11,6 @@ const port = 3000;
 
 // Include static assets. Not advised for production
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'node_modules')));
 // Set view path
 app.set('views', path.join(__dirname, 'app/views'));
 // set up ejs for templating. You can use whatever
