@@ -1,12 +1,15 @@
 import React from 'react';
+import { Router, Route } from 'react-router';
+import { createBrowserHistory } from 'history';
 import App from './components/App.react';
 import Recognition from './utils/Recognition';
-import { Router, Route, Link } from 'react-router';
 import routes from './routes';
+
+const history = createBrowserHistory();
 
 React.render(
   (
-    <Router routes={routes}> />
+    <Router history={history} routes={routes} />
   ),
   document.getElementById('react')
 );
