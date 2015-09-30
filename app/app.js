@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Router, Route } from 'react-router';
 import { createBrowserHistory } from 'history';
 import App from './components/App.react';
@@ -7,7 +8,7 @@ import routes from './routes';
 
 const history = createBrowserHistory();
 
-React.render(
+ReactDOM.render(
   (
     <Router history={history} routes={routes} />
   ),
