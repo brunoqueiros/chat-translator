@@ -6,7 +6,7 @@ import ChatRoom from './components/ChatRoom.react';
 
 const routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={Home} />
+    <IndexRoute component={Home}/>
     <Route path="chat" component={ChatRoom}/>
   </Route>
 );
