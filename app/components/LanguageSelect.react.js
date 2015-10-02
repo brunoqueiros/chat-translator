@@ -1,8 +1,38 @@
 import React from 'react';
+import connectToStores from 'alt/utils/connectToStores';
+import LanguagesStore from '../stores/LanguagesStore';
+import OptionGroup from './OptionGroup.react';
 
+function getStateFromStore() {
+  return  LanguagesStore.getState();
+}
+
+@connectToStores
 class LanguageSelect extends React.Component {
 
-  _onChange = (event) => {
+  state = getStateFromStore();
+
+  static getStores() {
+    return [LanguagesStore];
+  }
+
+  static getPropsFromStores() {
+    return getStateFromStore();
+  }
+
+  componentDidMount() {
+    LanguagesStore.listen(this._onChange);
+  }
+
+  componentWillUnmount() {
+    LanguagesStore.unlisten(this._onChange);
+  }
+
+  _onChange = () => {
+    this.setState(getStateFromStore());
+  }
+
+  _onSelect = (event) => {
     localStorage.setItem('language', event.target.value);
   }
 
@@ -10,23 +40,17 @@ class LanguageSelect extends React.Component {
     return (
       <div className="field">
         <label>Select a language</label>
-        <select onChange={this._onChange}>
+        <select onChange={this._onSelect}>
           <option value=""></option>
 
-          <optgroup label="English">
-            <option value="en-AU">Australia</option>
-            <option value="en-CA">Canada</option>
-            <option value="en-IN">India</option>
-            <option value="en-NZ">New Zealand</option>
-            <option value="en-ZA">South Africa</option>
-            <option value="en-GB">United Kingdom</option>
-            <option value="en-US">United State</option>
-          </optgroup>
-
-          <optgroup label="Português">
-            <option value="pt-BR">Brasil</option>
-            <option value="pt-PT">Portugal</option>
-          </optgroup>
+          {this.state.languages.map((language, idx) => {
+            return (
+              <OptionGroup
+                key={idx}
+                label={language.name}
+                options={language.countries}/>
+            )
+          })}
         </select>
       </div>
     )
