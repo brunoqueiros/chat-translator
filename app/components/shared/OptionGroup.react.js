@@ -5,11 +5,11 @@ class OptionGroup extends React.Component {
   render() {
     return (
         <optgroup label={this.props.label}>
-          {this.props.options.map((option) => {
+          {this.props.options.map((option, idx) => {
             return (
               <option
-                key={option.isocode}
-                value={option.isocode}>{option.name}</option>
+                key={idx}
+                value={option.value}>{option.text}</option>
             );
           })}
         </optgroup>
