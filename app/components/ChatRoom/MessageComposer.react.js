@@ -1,5 +1,5 @@
 import React from 'react';
-import MessagesActions from '../actions/MessagesActions';
+import MessagesActions from '../../actions/MessagesActions';
 
 const ENTER_KEY_CODE = 13;
 

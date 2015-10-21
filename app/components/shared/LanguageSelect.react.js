@@ -1,6 +1,6 @@
 import React from 'react';
 import connectToStores from 'alt/utils/connectToStores';
-import LanguagesStore from '../stores/LanguagesStore';
+import LanguagesStore from '../../stores/LanguagesStore';
 import OptionGroup from './OptionGroup.react';
 
 function getStateFromStore() {
@@ -39,8 +39,8 @@ class LanguageSelect extends React.Component {
   render() {
     return (
       <div className="field">
-        <label>Select a language</label>
-        <select onChange={this._onSelect}>
+        <label>Choose your language</label>
+        <select id={this.props.id} onChange={this._onSelect}>
           <option value=""></option>
 
           {this.state.languages.map((language, idx) => {

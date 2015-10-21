@@ -1,6 +1,6 @@
 import React from 'react';
 import connectToStores from 'alt/utils/connectToStores';
-import MessagesStore from '../stores/MessagesStore';
+import MessagesStore from '../../stores/MessagesStore';
 import MessageItem from './MessageItem.react';
 import MessageComposer from './MessageComposer.react';
 
