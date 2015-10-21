@@ -10,18 +10,14 @@ class Home extends React.Component {
   state = {tabActive: 0};
 
   componentDidMount() {
-    // localStorage.removeItem('language');
+    localStorage.removeItem('language');
   }
 
-  _onClick = (event) => {
-    // const language = localStorage.getItem('language');
-
-    // if (document.querySelector('') === '') {
-      console.log('ae');
-    // }
-
-    this.setState({tabActive: 1});
-    event.preventDefault();
+  _onChange = (event) => {
+    if (event.target.value !== '') {
+      localStorage.setItem('language', event.target.value);
+      this.setState({tabActive: 1});
+    }
   }
 
   render() {
@@ -34,7 +30,7 @@ class Home extends React.Component {
               description='Choose your language'
               icon='translate'>
               <HomeSectionLanguage
-                _onClick={this._onClick}/>
+                onChange={this._onChange}/>
             </Step>
             <Step
               title='Room'
