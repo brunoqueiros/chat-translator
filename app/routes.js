@@ -1,8 +1,8 @@
 import React from 'react';
 import { Router, Route, IndexRoute, Link } from 'react-router';
-import Home from './components/Home.react';
+import Home from './components/Home/Index.react';
+import ChatRoom from './components/ChatRoom/Index.react';
 import App from './components/App.react';
-import ChatRoom from './components/ChatRoom.react';
 
 const routes = (
   <Route path="/" component={App}>
