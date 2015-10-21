@@ -9,6 +9,10 @@
 <body>
   <div id="react"><%- reactOutput %></div>
 
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+  </script>
   <script src="bundle.js"></script>
 </body>
 </html>
