@@ -34,7 +34,7 @@ class Home extends React.Component {
             </Step>
             <Step
               title='Room'
-              description='Crete a new room or enter on an existing'
+              description='Crete a new room or enter in an existing'
               icon='comments'>
               <HomeSectionRoom />
             </Step>

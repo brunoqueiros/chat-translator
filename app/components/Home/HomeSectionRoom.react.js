@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router';
 
 class HomeSectionRoom extends React.Component {
 
@@ -31,36 +32,29 @@ class HomeSectionRoom extends React.Component {
         <div className="ui buttons fluid">
           <button className={newButtonClasses} data-new="true" onClick={this._onClick}>Create a new room</button>
           <span className="or"></span>
-          <button className={existingButtonClasses} data-new="false" onClick={this._onClick}>Enter on a existing room</button>
+          <button className={existingButtonClasses} data-new="false" onClick={this._onClick}>Enter in an existing room</button>
         </div>
+
+        <hr className="ui divider" />
 
         <form className="ui form">
           {this.state.isNewRoom === 'true' ?
-            <div>
-              <h4 className="ui horizontal divider header">
-                <i className="tag icon"></i>
-                New room
-              </h4>
-              <div className="field">
-                <label>Enter a room ID</label>
-                <input type="text" name="room-name" />
-              </div>
+            <div className="field">
+              <label htmlFor="existing-room-id">Type an existing room ID</label>
+              <input type="text" name="existing-room-id" id="existing-room-id" />
             </div>
             :
-            <div>
-              <h4 className="ui horizontal divider header">
-                <i className="tag icon"></i>
-                Existing room
-              </h4>
-              <div className="ui action input fluid">
-                <input type="text" value="my-new-room-2412" />
-                <button className="ui teal right labeled icon button">
-                  <i className="copy icon"></i>
-                  Copy room ID
-                </button>
-              </div>
+            <div className="field">
+              <label htmlFor="new-room-id">Type a room ID</label>
+              <input type="text" name="new-room-id" id="new-room-id" />
             </div>
           }
+
+          <Link
+            to="/chat"
+            className="large ui button fluid blue"
+            onClick={this.props._onClick}
+          >Enter</Link>
         </form>
       </div>
     )
