@@ -17,6 +17,7 @@
   "dependencies": {
     "alt": "^0.17.3",
     "classnames": "^2.2.0",
+    "clone": "^1.0.2",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "history": "^1.11.1",
