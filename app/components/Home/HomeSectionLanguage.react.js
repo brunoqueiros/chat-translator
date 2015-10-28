@@ -1,4 +1,5 @@
 import React from 'react';
+import clone from 'clone';
 import connectToStores from 'alt/utils/connectToStores';
 import LanguagesStore from '../../stores/LanguagesStore';
 
@@ -9,7 +10,9 @@ function getStateFromStore() {
 }
 
 function processOptions(optgroupOptions) {
-  return optgroupOptions.map((optgroupOption) => {
+  let optgroupOptionsAux = clone(optgroupOptions);
+
+  return optgroupOptionsAux.map((optgroupOption) => {
     optgroupOption['optgroup'] = optgroupOption['name'];
     optgroupOption['options'] = optgroupOption['countries'];
 
