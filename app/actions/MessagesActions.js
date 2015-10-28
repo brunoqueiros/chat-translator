@@ -2,7 +2,7 @@ import alt from '../alt';
 
 class MessagesActions {
   newMessage(text, language) {
-    let message = {
+    const message = {
       text: text,
       language: language
     };

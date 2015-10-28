@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route } from 'react-router';
+import { Router } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
-import App from './components/App.react';
 import Recognition from './utils/Recognition';
 import routes from './routes';
 
 const history = createBrowserHistory();
+
+Recognition.init();
 
 ReactDOM.render(
   (

@@ -6,14 +6,15 @@ import socket from 'socket.io';
 export default function(callback) {
   const app = express();
   const httpServer = http.Server(app);
-  const server = socket(httpServer);
 
-  app.set("env", process.env.NODE_ENV || 'development');
-  app.set("host", process.env.HOST || '0.0.0.0');
-  app.set("port", process.env.PORT || 3000);
+  socket(httpServer);
+
+  app.set('env', process.env.NODE_ENV || 'development');
+  app.set('host', process.env.HOST || '0.0.0.0');
+  app.set('port', process.env.PORT || 3000);
 
   // Include static assets. Not advised for production
-  app.use(express.static(path.resolve(__dirname, "../public")));
+  app.use(express.static(path.resolve(__dirname, '../public')));
 
   // Set view path
   app.set('views', path.join(__dirname, 'views'));

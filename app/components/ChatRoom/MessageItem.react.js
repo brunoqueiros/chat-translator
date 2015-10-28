@@ -1,5 +1,4 @@
 import React from 'react';
-import MessagesActions from '../../actions/MessagesActions';
 import Synthesis from '../../utils/Synthesis';
 
 class MessageItem extends React.Component {

@@ -1,3 +1,4 @@
+/*global socket*/
 import { RTCPeerConnection, getUserMedia, attachMediaStream } from 'webrtc-adapter-test';
 
 let peerConnection;
@@ -24,7 +25,8 @@ function onError(error) {
 }
 
 function onIceCandidate(event) {
-  console.log("ice candidate created");
+  console.log('ice candidate created');
+
   if (event.candidate) {
     // TODO: send to signal server
     socket.emit('message', {
@@ -48,10 +50,14 @@ class WebRTCUtil {
   start() {
     peerConnection = new RTCPeerConnection(
       {
-        iceServers: [{"url": "stun:stun.l.google.com:19302"}] //[{"url":"stun:124.124.124.2"}]
+        iceServers: [
+          {'url': 'stun:stun.l.google.com:19302'}
+        ]
       },
       {
-        optional: [{"DtlsSrtpKeyAgreement": true}]
+        optional: [
+          {'DtlsSrtpKeyAgreement': true}
+        ]
       }
     );
 
@@ -59,7 +65,8 @@ class WebRTCUtil {
     peerConnection.onaddstream = onAddStream;
 
     socket.on('connect', function () {
-      console.log("logged in");
+      console.log('logged in');
+
       socket.emit('message', {
         'type': 'connect',
         'token': token

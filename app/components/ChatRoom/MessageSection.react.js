@@ -13,20 +13,20 @@ class MessagesSection extends React.Component {
 
   state = getStateFromStore();
 
-  static getStores() {
-    return [MessagesStore];
-  }
-
-  static getPropsFromStores() {
-    return getStateFromStore();
-  }
-
   componentDidMount() {
     MessagesStore.listen(this._onChange);
   }
 
   componentWillUnmount() {
     MessagesStore.unlisten(this._onChange);
+  }
+
+  static getStores() {
+    return [MessagesStore];
+  }
+
+  static getPropsFromStores() {
+    return getStateFromStore();
   }
 
   _onChange = () => {
@@ -55,6 +55,6 @@ class MessagesSection extends React.Component {
       </div>
     )
   }
-};
+}
 
 export default MessagesSection;

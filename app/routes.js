@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute, Link } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 import Home from './components/Home/Index.react';
 import ChatRoom from './components/ChatRoom/Index.react';
 import App from './components/App.react';

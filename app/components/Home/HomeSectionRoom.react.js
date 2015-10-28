@@ -6,22 +6,18 @@ class HomeSectionRoom extends React.Component {
 
   state = {isNewRoom: 'true'};
 
-  constructor() {
-    super();
-  }
-
   _onClick = (event) => {
     this.setState({isNewRoom: event.target.dataset.new});
   }
 
   render() {
-    let newButtonClasses = classNames(
+    const newButtonClasses = classNames(
       'ui',
       'button',
       (this.state.isNewRoom === 'true') && 'positive'
     );
 
-    let existingButtonClasses = classNames(
+    const existingButtonClasses = classNames(
       'ui',
       'button',
       (this.state.isNewRoom === 'false') && 'positive'

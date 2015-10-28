@@ -15,7 +15,7 @@ class MessageItem extends React.Component {
     if (event.keyCode === ENTER_KEY_CODE) {
       event.preventDefault();
 
-      let text = this.state.text.trim();
+      const text = this.state.text.trim();
       if (text) {
         MessagesActions.newMessage(text, 'en-US');
       }
@@ -23,7 +23,7 @@ class MessageItem extends React.Component {
     }
   }
 
-  _onChange = (event, value) => {
+  _onChange = (event) => {
     this.setState({text: event.target.value});
   }
 

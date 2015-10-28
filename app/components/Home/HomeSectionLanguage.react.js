@@ -2,7 +2,6 @@ import React from 'react';
 import clone from 'clone';
 import connectToStores from 'alt/utils/connectToStores';
 import LanguagesStore from '../../stores/LanguagesStore';
-
 import Select from '../shared/Select.react';
 
 function getStateFromStore() {
@@ -10,7 +9,7 @@ function getStateFromStore() {
 }
 
 function processOptions(optgroupOptions) {
-  let optgroupOptionsAux = clone(optgroupOptions);
+  const optgroupOptionsAux = clone(optgroupOptions);
 
   return optgroupOptionsAux.map((optgroupOption) => {
     optgroupOption['optgroup'] = optgroupOption['name'];
@@ -37,20 +36,20 @@ class HomeSectionLanguage extends React.Component {
 
   state = getStateFromStore();
 
-  static getStores() {
-    return [LanguagesStore];
-  }
-
-  static getPropsFromStores() {
-    return getStateFromStore();
-  }
-
   componentDidMount() {
     LanguagesStore.listen(this._onChange);
   }
 
   componentWillUnmount() {
     LanguagesStore.unlisten(this._onChange);
+  }
+
+  static getStores() {
+    return [LanguagesStore];
+  }
+
+  static getPropsFromStores() {
+    return getStateFromStore();
   }
 
   _onChange = () => {

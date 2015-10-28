@@ -9,17 +9,15 @@ function hasSupport() {
 }
 
 class Recognition {
-  constructor() {
-    if (!hasSupport())
-      throw new Error('Your browser does not support the Web Speech API');
-
-    this.init();
-    this.bindListeners();
-  }
-
   init() {
+    if (!hasSupport()) {
+      throw new Error('Your browser does not support the Web Speech API');
+    }
+
     this.recognizer = new window.SpeechRecognition();
     this.recognizer.continous = true;
+
+    this.bindListeners();
   }
 
   bindListeners() {
@@ -44,20 +42,19 @@ class Recognition {
 
   error() {
     this.recognizer.addEventListener('error', (e) => {
-      console.error(e);
+      throw e;
     });
   }
 
   end() {
     this.recognizer.addEventListener('end', (e) => {
-      console.log('end');
-      // this.start();
+      throw e;
     });
   }
 
   result() {
     this.recognizer.addEventListener('result', (e) => {
-      let text = e.results[0][0].transcript.trim();
+      const text = e.results[0][0].transcript.trim();
 
       MessagesActions.newMessage(text);
     });

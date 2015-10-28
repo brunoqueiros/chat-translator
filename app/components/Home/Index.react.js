@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import Steps from '../shared/Steps.react';
 import Step from '../shared/Step.react';
 import HomeSectionLanguage from './HomeSectionLanguage.react';
@@ -26,16 +25,16 @@ class Home extends React.Component {
         <div className="column ten wide ui">
           <Steps tabActive={this.state.tabActive}>
             <Step
-              title='Language'
-              description='Choose your language'
-              icon='translate'>
+              title="Language"
+              description="Choose your language"
+              icon="translate">
               <HomeSectionLanguage
                 onChange={this._onChange}/>
             </Step>
             <Step
-              title='Room'
-              description='Crete a new room or enter in an existing'
-              icon='comments'>
+              title="Room"
+              description="Crete a new room or enter in an existing"
+              icon="comments">
               <HomeSectionRoom />
             </Step>
           </Steps>

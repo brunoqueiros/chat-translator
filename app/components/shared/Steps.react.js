@@ -2,18 +2,14 @@ import React from 'react';
 import classNames from 'classnames';
 
 class Steps extends React.Component {
-  constructor() {
-    super();
-  }
-
   getStepsTab(tabActive) {
     return this.props.children.map((step, index) => {
-      let stepClasses = classNames(
+      const stepClasses = classNames(
         'step',
         parseInt(tabActive, 10) === index && 'active'
       );
 
-      let stepIconClasses = classNames(
+      const stepIconClasses = classNames(
         'icon',
         step.props.icon
       );
@@ -32,7 +28,7 @@ class Steps extends React.Component {
 
   render() {
     const tabActive = this.props.tabActive;
-    let steps = this.getStepsTab(tabActive);
+    const steps = this.getStepsTab(tabActive);
 
     return (
       <div>

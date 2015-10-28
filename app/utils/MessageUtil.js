@@ -1,6 +1,6 @@
 class MessageUtil {
   createMessage(message, translatedText) {
-    let id = '_' + Math.random().toString(36).substr(2, 9);
+    const id = '_' + Math.random().toString(36).substr(2, 9);
 
     return {
       id: id,
